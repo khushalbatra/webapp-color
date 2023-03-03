@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: color-deployment
+ namespace: khushal-test
+ labels:
+   name: color-deployment
+   app: demo-deployment
+spec:
+ replicas: 2
+ selector: 
+   matchLabels: 
+     name: color-deployment
+     app: demo-deployment
+ template:
+   metadata:
+     name: color-deployment
+     labels:
+       name: color-deployment
+       app: demo-deployment
+   spec:
+     containers:
+       - name: color-app
+         image: kodekloud/webapp-color
+         ports:
+           - containerPort: 80
