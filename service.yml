@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: color-service
+ namespace: khushal-test
+ labels:
+   name: color-service
+   app: demo-deployment
+spec:
+ type: NodePort
+ ports:
+   - port: 80
+     targetPort: 80
+     nodePort: 30004
+ selector:
+   name: color-deployment
+   app: demo-deployment
